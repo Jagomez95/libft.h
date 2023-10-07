@@ -10,16 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i] != '\0')
-	{
 		i++;
-	}
 	return (i);
+}
+int main()
+{
+    const char *cadena;
+    size_t l;
+    
+    cadena = "Hola";
+    l = ft_strlen(cadena);
+    printf("La longitud de la cadena es %zu", l);
 }
