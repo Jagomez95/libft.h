@@ -18,3 +18,15 @@ int	ft_isalpha(int x)
 		return (1);
 	return (0);
 }
+int main() {
+    char ch;
+	ch = 'a';
+    // Llamar a la función ft_isalpha y mostrar el resultado
+    if (ft_isalpha(ch)) {
+        printf("%c es una letra.\n", ch);
+    } else {
+        printf("%c no es una letra.\n", ch);
+    }
+
+    return 0;
+}
