@@ -20,3 +20,17 @@ int	ft_isalnum(int a)
 		return (1);
 	return (0);
 }
+int main()
+{
+    int i;
+    
+    i = '@';
+    if (ft_isalnum(i))
+    {
+        printf("%c es un alfanumerico.\n", i);
+    }
+    else
+    {
+        printf("%c no es un alfanumerico.\n", i);
+    }
+}
