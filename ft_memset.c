@@ -33,7 +33,7 @@ int main() {
     ft_memset(cadena, 'A', 5);
 
     // Imprimir la cadena después de ft_memset
-    printf("Cadena después de ft_memset: %s\n", cadena);
+    printf("La cadena de ft_memset: %s\n", cadena);
 
     return 0;
 }
