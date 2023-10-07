@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 void	*ft_memset(void *ptr, int value, size_t num)
 {
@@ -28,9 +28,6 @@ void	*ft_memset(void *ptr, int value, size_t num)
 }
 int main() {
     char cadena[10];
-
-    // Imprimir la cadena antes de ft_memset
-    printf("Cadena antes de ft_memset: %s\n", cadena);
 
     // Utilizar ft_memset para establecer los primeros 5 bytes de la cadena en 'A'
     ft_memset(cadena, 'A', 5);
