@@ -12,24 +12,22 @@
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void    *ft_memmove(void *dst, const void *src, size_t len)
 {
-	char *d;
-	char *s;
-
-	d = (char *)dst;
-	s = (char *)src;
-	if (dst == src)
-		return (dst);
-	if (s < d)
-	{
-		while (len--)
-			*(d + len) = *(s + len);
-		return (dst);
-	}
-	while (len--)
-		*d++ = *s++;
-	return (dst);
+    unsigned char *d;
+    unsigned char *s;
+    
+    d = (unsigned char *)dst;
+    s = (unsigned char *)src;
+    if (!dst && !src)
+        return (dst);
+    if (src < dst)
+        while (len--)
+            d[len] = s[len];
+    else 
+        while (len--)
+            *d++ = *s++;
+    return (dst);
 }
 int main() {
     // Ejemplo: Copiar una cadena a otra con solapamiento
