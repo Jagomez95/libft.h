@@ -10,23 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*a;
-	char	*b;
+	char *d;
+	char *s;
 
-	a = (char *) src;
-	b = (char *) dst;
-	if (a < b)
+	d = (char *)dst;
+	s = (char *)src;
+	if (dst == src)
+		return (dst);
+	if (s < d)
 	{
 		while (len--)
-		{
-			b[len] = a[len];
-		}
-		else
-			ft_memcpy(b, a, len);
+			*(d + len) = *(s + len);
+		return (dst);
 	}
+	while (len--)
+		*d++ = *s++;
 	return (dst);
+}
+int main() {
+    // Ejemplo: Copiar una cadena a otra con solapamiento
+    char cadena[] = "Hola, mundo";
+    char destino[20];
+
+    // Utilizar ft_memmove para copiar la cadena a una posición superpuesta
+    ft_memmove(destino + 5, cadena, sizeof(cadena));
+
+    // Imprimir el contenido del destino
+    printf("Destino: %s\n", destino);
+
+    return 0;
 }
