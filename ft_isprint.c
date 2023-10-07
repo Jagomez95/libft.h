@@ -18,3 +18,17 @@ int	ft_isprint(int x)
 		return (1);
 	return (0);
 }
+int main()
+{
+    int i;
+    
+    i = 'g';
+    if (ft_isprint(i))
+    {
+        printf("%c si es imprimible.\n", i);
+    }
+    else
+    {
+        printf("%c no es imprimible.\n", i);
+    }
+}
