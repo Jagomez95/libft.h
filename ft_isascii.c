@@ -18,3 +18,17 @@ int	ft_isascii(int a)
 		return (1);
 	return (0);
 }
+int main()
+{
+    int i;
+    
+    i = '+';
+    if(ft_isascii(i))
+    {
+        printf("%c esta dentro de ascii nene.\n", i);
+    }
+    else
+    {
+        printf("%c no esta dentro de ascii nene.\n", i);
+    }
+}
