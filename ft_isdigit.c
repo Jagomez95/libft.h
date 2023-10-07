@@ -19,3 +19,18 @@ int	ft_isdigit(int a)
 		return (1);
 	return (0);
 }
+int main()
+{
+    int i;
+    
+    i = '5';
+    
+    if (ft_isdigit(i))
+    {
+        printf("%c si es un numero.\n", i);
+    }
+    else
+    {
+        printf("%c no es un numero.\n", i);
+    }
+}
