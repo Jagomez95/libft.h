@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 char	*ft_strrchr(const char *cadena, int carac)
 {
@@ -25,4 +25,20 @@ char	*ft_strrchr(const char *cadena, int carac)
 		cadena++;
 	}
 	return ((char *) resultado);
+}
+int main() {
+    const char *cadena = "Hola, mundo";
+    int carac = 'o';
+
+    // Utiliza ft_strrchr para buscar la última aparición de 'o' en la cadena
+    char *resultado = ft_strrchr(cadena, carac);
+
+    if (resultado != NULL) {
+        printf("Carácter encontrado: %c\n", *resultado);
+        printf("Posición en la cadena: %ld\n", resultado - cadena);
+    } else {
+        printf("Carácter no encontrado.\n");
+    }
+
+    return 0;
 }
