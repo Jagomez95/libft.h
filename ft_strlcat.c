@@ -16,7 +16,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	londst;
 	size_t	lonsrc;
-	size_t	cont;
+	size_t	cont;//Sirve como contador para la concatenación.
 
 	londst = ft_strlen(dst);//calcula la long de la cadena dst
 	lonsrc = ft_strlen(src);//calcula la long de la cadena origen
