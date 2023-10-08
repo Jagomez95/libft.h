@@ -18,18 +18,18 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t	len;
 
 	len = 0;
-	if (src != NULL)
+	if (src != NULL) //verifica si la cadena origen no es nula
 	{
-		len = ft_strlen(src);
-		if (dst != NULL && dstsize != 0)
+		len = ft_strlen(src);//obtiene la longitud de la cadena origen utilizando la funcion strlen
+		if (dst != NULL && dstsize != 0)//verifica que dst sea nulo y dstsize no sea 0
 		{
 			i = 0;
-			while ((i < len) && i < (dstsize - 1))
+			while ((i < len) && i < (dstsize - 1))//copia desde la cadena de origen hasta destino
 			{
-				dst[i] = src[i];
-				i++;
+				dst[i] = src[i];//copia un caracter de la cadena origen hasta dst
+				i++;//incrementa
 			}
-			dst[i] = '\0';
+			dst[i] = '\0';//asegura que la cadena de destino este terminada con el carácter nulo
 		}
 	}
 	return (len);
@@ -39,7 +39,7 @@ int main() {
     const char origen[] = "Hola, mundoooo";
 
     // Utiliza ft_strlcpy para copiar la cadena
-    size_t longitud_copiada = ft_strlcpy(destino, origen, sizeof(destino));
+    size_t longitud_copiada = ft_strlcpy(destino, origen, sizeof(destino));//sizeof se utiliza para especificar el tamaño del búfer de dst
 
     // Imprime la cadena copiada y su longitud
     printf("Cadena copiada: %s\n", destino);
