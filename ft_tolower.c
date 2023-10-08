@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 int	ft_tolower(int i)
 {
@@ -19,4 +19,13 @@ int	ft_tolower(int i)
 		i += 32;
 	}
 	return (i);
+}
+int main() {
+    char uppercase = 'A';
+    char lowercase = ft_tolower(uppercase);
+
+    printf("Original: %c\n", uppercase);
+    printf("Mayúscula: %c\n", lowercase);
+
+    return 0;
 }
