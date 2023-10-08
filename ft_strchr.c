@@ -16,9 +16,9 @@ char	*ft_strchr(const char *cadena, int carac)
 {
 	while (*cadena != '\0')
 	{
-		if (*cadena == (char) carac)
+		if (*cadena == (char) carac)//Compara el carácter actual de la cadena con el carácter especificado (carac). 
 		{
-			return ((char *) cadena);
+			return ((char *) cadena);// Si se encuentra una coincidencia, devuelve un puntero al lugar en la cadena donde se encontró la coincidencia.
 		}
 		cadena++;
 	}
