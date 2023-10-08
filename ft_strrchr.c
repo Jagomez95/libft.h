@@ -14,17 +14,17 @@
 
 char	*ft_strrchr(const char *cadena, int carac)
 {
-	const char	*resultado = NULL;
-
+	const char	*resultado = NULL;//Este puntero se utiliza para rastrear la última ocurrencia del carácter en la cadena.
 	while (*cadena != '\0')
 	{
-		if (*cadena == (char) carac)
+		if (*cadena == (char) carac)//Compara el carácter actual de la cadena con el carácter especificado (carac).
 		{
-			resultado = cadena;
+			resultado = cadena;//Si se encuentra una coincidencia, actualiza el puntero resultado con la posición actual de la cadena
 		}
 		cadena++;
 	}
-	return ((char *) resultado);
+	return ((char *) resultado);//Devuelve un puntero al último lugar en la cadena donde se encuentra el carácter carac.
+					//Si no se encuentra el carácter en la cadena, devuelve NULL.
 }
 int main() {
     const char *cadena = "Hola, mundo";
