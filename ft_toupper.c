@@ -10,11 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 int	ft_toupper(int i)
 {
 	if (i >= 'a' && i <= 'z')
 		i -= 32;
 	return (i);
+}
+int main() {
+    char lowercase = 'a';
+    char uppercase = ft_toupper(lowercase);
+
+    printf("Original: %c\n", lowercase);
+    printf("Mayúscula: %c\n", uppercase);
+
+    return 0;
 }
