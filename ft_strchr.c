@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 char	*ft_strchr(const char *cadena, int carac)
 {
@@ -23,4 +23,20 @@ char	*ft_strchr(const char *cadena, int carac)
 		cadena++;
 	}
 	return (NULL);
+}
+int main() {
+    const char *cadena = "Hola, mundo";
+    int carac = 'm';
+
+    // Utiliza ft_strchr para buscar la primera aparición de 'm' en la cadena
+    char *resultado = ft_strchr(cadena, carac);
+
+    if (resultado != NULL) {
+        printf("Carácter encontrado: %c\n", *resultado);
+        printf("Posición en la cadena: %ld\n", resultado - cadena);
+    } else {
+        printf("Carácter no encontrado.\n");
+    }
+
+    return 0;
 }
