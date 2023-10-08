@@ -10,23 +10,40 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-unsigned int	ft_strlcpy(char *dest, char *scr, unsigned int size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	unsigned int	n;
+	size_t	i;
+	size_t	len;
 
-	n = 0;
-	if (n <= size)
+	len = 0;
+	if (src != NULL)
 	{
-		while (scr[n] && n < (size - 1))
+		len = ft_strlen(src);
+		if (dst != NULL && dstsize != 0)
 		{
-			dest[n] = src[n];
-			n++;
+			i = 0;
+			while ((i < len) && i < (dstsize - 1))
+			{
+				dst[i] = src[i];
+				i++;
+			}
+			dst[i] = '\0';
 		}
-		dest[n] != '\0';
 	}
-	while (src[n])
-		n++;
-	return (n);
+	return (len);
+}
+int main() {
+    char destino[20];
+    const char origen[] = "Hola, mundoooo";
+
+    // Utiliza ft_strlcpy para copiar la cadena
+    size_t longitud_copiada = ft_strlcpy(destino, origen, sizeof(destino));
+
+    // Imprime la cadena copiada y su longitud
+    printf("Cadena copiada: %s\n", destino);
+    printf("Longitud de la cadena copiada: %zu\n", longitud_copiada);
+
+    return 0;
 }
