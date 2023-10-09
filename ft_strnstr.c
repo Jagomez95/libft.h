@@ -24,7 +24,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	{
 		j = 0;
 		while (needle[j] == haystack[i + j] && i + j < len)//Inicia un bucle que compara los caracteres de needle con los caracteres de haystack comenzando desde la posición i. El bucle se ejecuta mientras los caracteres coincidan y no se haya alcanzado la longitud máxima len.		{
-			if (needle[j + 1] == '\0')//Si se encuentra una coincidencia completa de la subcadena needle en la posición i de haystack, la función devuelve un puntero al comienzo de la coincidencia en haystack.				return ((char *)haystack + i);
+			if (needle[j + 1] == '\0')//Si se encuentra una coincidencia completa de la subcadena needle en la posición i de haystack, la función devuelve un puntero al comienzo de la coincidencia en haystack.
+				return ((char *)haystack + i);
 			j++;
 		}
 		i++;
