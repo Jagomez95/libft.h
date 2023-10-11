@@ -14,31 +14,36 @@
 
 void    *ft_memmove(void *dst, const void *src, size_t len)
 {
-    unsigned char *d;
-    unsigned char *s;
+    size_t  i;
     
-    d = (unsigned char *)dst;
-    s = (unsigned char *)src;
+    i = 0;
     if (!dst && !src)
-        return (dst);
-    if (src < dst)
-        while (len--)
-            d[len] = s[len];
-    else 
-        while (len--)
-            *d++ = *s++;
+    return (0);
+    if (((size_t)dst) - ((size_t)src < len))
+    {
+        i = (len - 1);
+        while (i < len)
+        {
+            ((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+            i--;
+        }
+    }
+    else
+    {
+        while (i < len)
+        {
+            ((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+            i++;
+        }
+    }
     return (dst);
 }
-int main() {
-    // Ejemplo: Copiar una cadena a otra con solapamiento
-    char cadena[] = "Hola, mundo";
-    char destino[20];
-
-    // Utilizar ft_memmove para copiar la cadena a una posición superpuesta
-    ft_memmove(destino + 5, cadena, sizeof(cadena));
-
-    // Imprimir el contenido del destino
-    printf("Destino: %s\n", destino);
-
-    return 0;
+int main()
+{
+    char src1[] = "Hello, World!";
+    char dest1[20];
+    
+    ft_memmove(dest1, src1, strlen(src1) + 1);
+    printf("Resultado: %s\n", dest1);
+    return (0);
 }
