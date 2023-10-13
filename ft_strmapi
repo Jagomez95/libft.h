@@ -12,6 +12,7 @@
 
 #include "libft.h"
 
+/*Esta función es útil cuando se desea aplicar una transformación específica a cada carácter de una cadena y obtener una nueva cadena resultante.*/
 char	*ft_strmapi(char const *s, char (*f) (unsigned int, char))
 {
 	int		i;
@@ -19,17 +20,47 @@ char	*ft_strmapi(char const *s, char (*f) (unsigned int, char))
 	int		len;
 
 	i = 0;
-	if (!s)
-		return (NULL);
-	len = ft_strlen(s);
-	str = malloc(sizeof(char) * (len + 1));
+	if (!s)//Verifica si la cadena de entrada s es nula.
+		return (NULL);//Si es así, devuelve NULL, indicando un caso de error o un manejo especial para cadenas nulas.
+	len = ft_strlen(s);// Calcula la longitud de la cadena de entrada s utilizando la función ft_strlen.
+	str = malloc(sizeof(char) * (len + 1));//Asigna dinámicamente memoria para la nueva cadena str. Se asigna espacio para len + 1 caracteres, donde +1 es para el carácter nulo \0 al final de la cadena.
 	if (!str)
 		return (NULL);
+	/*Utiliza un bucle para iterar sobre cada carácter de la cadena de entrada s, 
+	aplica la función f a cada par de índice y carácter, y almacena el resultado en la nueva cadena str.*/
 	while (i < len)
 	{
 		str[i] = f(i, s[i]);
 		i++;
 	}
-	str[len] = '\0';
+	str[len] = '\0';//Agrega el carácter nulo \0 al final de la nueva cadena str para asegurar que sea una cadena de caracteres válida.
 	return (str);
 }
+/* Prototipo de la función ft_strmapi
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
+// Función de ejemplo para pasar a ft_strmapi
+char transformar(unsigned int indice, char caracter) {
+    // Ejemplo de transformación: convertir a mayúscula si el índice es par, a minúscula si es impar
+    return (indice % 2 == 0) ? toupper(caracter) : tolower(caracter);
+}
+
+int main() {
+    const char *cadena_original = "Hola Mundo!";
+
+    // Llamada a ft_strmapi con la función de transformación
+    char *resultado = ft_strmapi(cadena_original, transformar);
+
+    if (resultado != NULL) {
+        // Imprimir el resultado
+        printf("Cadena original: %s\n", cadena_original);
+        printf("Cadena transformada: %s\n", resultado);
+
+        // Liberar la memoria asignada por ft_strmapi
+        free(resultado);
+    } else {
+        printf("Error al aplicar la transformación.\n");
+    }
+
+    return 0;
+}*/
