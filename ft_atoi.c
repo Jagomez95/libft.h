@@ -4,13 +4,14 @@ int     ft_atoi(const char *str)
 {
     int num;// para almacenar el valor entero resultante 
     int sign;// para almacenar el signo del número.
+    int i;
 
     num = 0;
+    i = 0;
     sign = 1;//en 1 antes de comenzar el procesamiento de la cadena.
-  /*isspace La función devuelve un valor distinto de cero si el carácter es un espacio en blanco y cero en caso contrario.
-  Los caracteres que se consideran espacios en blanco pueden variar según la implementación, pero comúnmente incluyen el espacio (' '), el tabulador ('\t'), el avance de página ('\f'), el retorno de carro ('\r'), la nueva línea ('\n') y el tabulador vertical ('\v').*/
-    while (ft_isspace(*str))
-        str++;
+    while (str[i] == ' ' || str[i] == '\r' || str[i] == '\t'
+    		|| str[i] == '\n' || str[i] == '\v' || str[i] == '\f')
+		i++;
     if (*str == '-')//Si el primer carácter después de los espacios en blanco es '-', entonces se establece sign en -1.
         sign = - 1;
     if (*str == '-' || *str == '+')//Si el primer carácter después de los espacios en blanco es '-' o '+', entonces se avanza el puntero str al siguiente carácter.
