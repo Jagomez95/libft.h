@@ -15,11 +15,14 @@
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	unsigned	int	i;
+	// Verifica si la cadena s o la función f son nulas, y si es así, retorna sin hacer nada
 	if (!s || !(*s) || !f)
 		return;
 	i = 0;
+	// Itera sobre cada carácter de la cadena s
 	while (s[i])
 	{
+		// Llama a la función f pasando el índice i y un puntero al carácter s[i]
 		f(i, &s[i]);
 		++i;
 	}
