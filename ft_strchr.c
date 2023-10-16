@@ -12,16 +12,24 @@
 
 #include "libft.h"
 
-char	*ft_strchr(const char *cadena, int carac)
+char	*ft_strchr(const char *str, int c)
 {
-	while (*cadena != '\0')
+	int	i;
+	int	flag;
+
+	flag = 0;
+	i = 0;
+	while (((char *)str)[i] != '\0' && flag == 0)
 	{
-		if (*cadena == (char) carac)//Compara el carácter actual de la cadena con el carácter especificado (carac). 
+		if (((char *)str)[i] == c)
 		{
-			return ((char *) cadena);// Si se encuentra una coincidencia, devuelve un puntero al lugar en la cadena donde se encontró la coincidencia.
+			return ((char *)&str[i]);
+			flag = 1;
 		}
-		cadena++;
+		i++;
 	}
+	if (c == '\0')
+		return ((char *)&str[i]);
 	return (NULL);
 }
 int main() {
