@@ -1,3 +1,15 @@
+  1 /* ************************************************************************** */
+  2 /*                                                                            */
+  3 /*                                                        :::      ::::::::   */
+  4 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
+  5 /*                                                    +:+ +:+         +:+     */
+  6 /*   By: jagomez <jagomez@student.42madrid.>        +#+  +:+       +#+        */
+  7 /*                                                +#+#+#+#+#+   +#+           */
+  8 /*   Created: 2023/10/16 15:54:53 by jagomez           #+#    #+#             */
+  9 /*   Updated: 2023/10/16 15:54:53 by jagomez          ###   ########.fr       */
+ 10 /*                                                                            */
+ 11 /* ************************************************************************** */
+
 #include "libft.h"
 
 t_list	*ft_lstlast(t_list *lst)
@@ -9,3 +21,4 @@ t_list	*ft_lstlast(t_list *lst)
 		lst = lst->next;// Avanza al siguiente nodo en la lista.
 	}
 	return (0);
+}
