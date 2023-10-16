@@ -7,7 +7,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list *auxgon;
 
 	aux = lst;// Inicializa un puntero auxiliar (`aux`) apuntando a la cabeza de la lista original (`lst`).
-	if (!(gon = malloc(sizeof(t_list))))// Intenta asignar memoria para el primer nodo de la nueva lista (`gon`). 
+	if (!(gon *) malloc(sizeof(t_list)))// Intenta asignar memoria para el primer nodo de la nueva lista (`gon`). 
 		return (0);
 	auxgon = gon;//Inicializa un puntero auxiliar (`auxgon`) para la nueva lista y lo apunta al primer nodo.
 	while (aux)//Inicia un bucle que se ejecuta mientras haya nodos en la lista original.
