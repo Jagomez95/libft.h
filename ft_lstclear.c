@@ -5,7 +5,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	t_list *gon;
 	t_list *aux;
 
-	if (!(aux = *lst))// Verifica si el puntero a la lista (`lst`) o el contenido de la lista son NULL.
+	if (!(aux || *lst))// Verifica si el puntero a la lista (`lst`) o el contenido de la lista son NULL.
 		return ;//Si alguno de ellos es NULL, la función sale inmediatamente, ya que no hay nada que liberar.
 	while (aux)//Inicia un bucle que continúa mientras el puntero `aux` no apunte a NULL, es decir, mientras haya nodos en la lista.
 	{
