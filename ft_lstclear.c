@@ -1,18 +1,15 @@
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	t_list *gon;
-	t_list *aux;
+	t_list	*tmp;
 
-	if (!(aux || *lst))// Verifica si el puntero a la lista (`lst`) o el contenido de la lista son NULL.
-		return ;//Si alguno de ellos es NULL, la función sale inmediatamente, ya que no hay nada que liberar.
-	while (aux)//Inicia un bucle que continúa mientras el puntero `aux` no apunte a NULL, es decir, mientras haya nodos en la lista.
+	if (!del || !lst || !*lst)
+		return ;
+	while (lst && *lst)
 	{
-		gon = aux->next;//Guarda una referencia al próximo nodo antes de liberar el nodo actual.
-		del(aux->content);// Llama a la función `del` para liberar la memoria del contenido del nodo actual.
-		free(aux);//Libera la memoria del nodo actual.
-		aux = gon;//Avanza al siguiente nodo.
+		tmp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = tmp;
 	}
-	*lst = NULL;//Después de que se han eliminado todos los nodos de la lista, establece el puntero de la lista en NULL.
 }
