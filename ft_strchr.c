@@ -15,21 +15,22 @@
 char	*ft_strchr(const char *str, int c)
 {
 	int	i;
-	int	flag;
+	int	flag;//Se declara una variable entera flag que se utiliza para indicar si se ha encontrado el carácter.
 
 	flag = 0;
 	i = 0;
+	//Inicia un bucle while. El bucle se ejecutará mientras el carácter en la posición i de la cadena no sea el carácter nulo ('\0') y flag sea igual a 0.
 	while (((char *)str)[i] != '\0' && flag == 0)
 	{
-		if (((char *)str)[i] == c)
+		if (((char *)str)[i] == c)//Comprueba si el carácter en la posición i de la cadena es igual al carácter c.
 		{
-			return ((char *)&str[i]);
-			flag = 1;
+			return ((char *)&str[i]);//Si se encuentra el carácter, devuelve un puntero a la posición en la que se encontró. La conversión de tipo (char *)&str[i] se realiza para cambiar el tipo de constante a no constante.
+			flag = 1;//eliminar esta linea
 		}
 		i++;
 	}
-	if (c == '\0')
-		return ((char *)&str[i]);
+	if (c == '\0')//Verifica si el carácter c es el carácter nulo ('\0').
+		return ((char *)&str[i]);//Si c es el carácter nulo, devuelve un puntero al final de la cadena.
 	return (NULL);
 }
 int main() {
