@@ -15,13 +15,13 @@
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	size_t	i;
-
-	if (!dst && !src)
+	
+	if (!dst && !src)//verifica si ambos punteros nos nulos
 		return (0);
 	i = 0;
-	while (i < n)
+	while (i < n)//Inicia un bucle while que se ejecutará hasta que se hayan copiado n bytes.
 	{
-		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];//se copian byte por byte. Se utilizan punteros de caracteres no firmados para garantizar que se copien bytes individuales sin signo.
 		i++;
 	}
 	return (dst);
