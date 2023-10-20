@@ -12,23 +12,22 @@
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *str, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
-	int	flag;
+	int		i;
+	char	a;
 
-	flag = 0;
-	i = ft_strlen(str);
-	while (i >= 0 && flag == 0)
+	a = c;
+	i = ft_strlen(s);
+	if (a == 0)
+		return ((char *) &s[i]);
+	while (i >= 0)
 	{
-		if (str[i] == c)
-		{
-			return ((char *)&str[i]);
-			flag = 1;
-		}
+		if (s[i] == a)
+			return ((char *)&s[i]);
 		i--;
 	}
-	return (NULL);
+	return (0);
 }
 int main() {
     const char *cadena = "Hola, mundo";
