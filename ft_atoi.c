@@ -52,8 +52,5 @@ int main() {
     const char *str3 = "    42";
     int result3 = ft_atoi(str3);
     printf("Resultado 3: %d\n", result3);
-
-    // Puedes agregar más ejemplos según sea necesario
-
     return 0;
 }
