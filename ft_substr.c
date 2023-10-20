@@ -14,27 +14,31 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
-	size_t	j;
-	char	*str;
+	unsigned int	a;
+	unsigned int	b;
+	char			*str;
 
-	i = 0;
-	j = 0;
-	str = (char *)malloc(sizeof(*s) * (len + 1));//Asigna dinámicamente memoria para la nueva subcadena. El tamaño es (len + 1) para incluir el carácter nulo \0 al final de la cadena.
-	if (!str)// Verifica si la asignación de memoria fue exitosa.
-		return (NULL);
-	while (s[i])//Itera a través de la cadena original s hasta que se alcance el final de la cadena.
+	if (!s)
+		return (0);
+	a = 0;
+	b = 0;
+	while (s[a] && a < start)
+		a++;
+	while (s[a] && b < len)
 	{
-		if (i >= start && j < len)// Verifica si la posición actual i está en o después del índice de inicio start y si aún no se ha alcanzado la longitud deseada len.
-		{
-			//Copia el carácter actual de la cadena original a la nueva subcadena y aumenta j.
-			str[j] = s[i];
-			j++;
-		}
-		i++;
+		a++;
+		b++;
 	}
-	str[j] = '\0';//Agrega el carácter nulo \0 al final de la nueva subcadena.
-	return (str);
+	str = (char *)malloc(b * sizeof(char) + 1);
+	if (!str)
+		return (0);
+	a = 0;
+	while (a < b)
+	{
+		str[a] = s[start + a];
+		a++;
+	}
+	return (str[a] = '\0', str);
 }
 int main() {
     const char *original = "Hello, World!";
