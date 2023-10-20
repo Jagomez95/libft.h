@@ -15,10 +15,12 @@
 char	*ft_strchr(const char *str, int c)
 {
 	char	a;
-
+//Se crea una variable a y se le asigna el valor de c. Esto se hace para evitar comparar directamente con c en las comparaciones siguientes.
 	a = c;
-	while (*str)
+	while (*str)//no sea el carácter nulo ('\0')
 	{
+//Compara el carácter actual apuntado por str con el valor almacenado en a (que es c). 
+//Si son iguales, la función devuelve un puntero al carácter actual de str.
 		if (*str == a)
 			return ((char *)str);
 		str++;
