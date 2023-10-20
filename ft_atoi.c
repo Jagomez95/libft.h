@@ -14,31 +14,28 @@
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	neg;
+	int	c;
+	int	s;
 	int	res;
 
-	i = 0;
-	neg = 1;
+	c = 0;
+	s = 1;
 	res = 0;
-	if (!str)
-		return (0);
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' || \
-			str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
-		i++;
-	if (str[i] == '-')
+	while (str[c] == ' ' || str[c] == '\n' || str[c] == '\t'
+		|| str[c] == '\v' || str[c] == '\f' || str[c] == '\r')
+		c++;
+	if (str[c] == '-' || str[c] == '+')
 	{
-		neg = -1;
-		i++;
+		if (str[c] == '-')
+			s = -1;
+		c++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	while (str[c] >= '0' && str[c] <= '9')
 	{
-		res = (res * 10) + (str[i] - '0');
-		i++;
+		res = (res * 10) + (str[c] - '0');
+		c++;
 	}
-	return (res * neg);
+	return (res * s);
 }
 int main() {
     // Ejemplo 1: cadena con dígitos positivos
