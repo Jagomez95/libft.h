@@ -18,14 +18,17 @@ char	*ft_strrchr(const char *str, int c)
 	char	a;
 
 	a = c;
-	i = ft_strlen(str);
+	i = ft_strlen(str);//Calcula la longitud de la cadena str
+//es el carácter nulo ('\0'), devuelve un puntero al final de la cadena,
+//indicando que el carácter nulo se encuentra al final de la cadena.
 	if (a == 0)
 		return ((char *)&str[i]);
-	while (i >= 0)
+	while (i >= 0)//Inicia un bucle while que recorre la cadena en sentido inverso, desde el último carácter hasta el primer carácter.
 	{
+//Compara el carácter actual de str con c. Si son iguales, devuelve un puntero al carácter actual de str.
 		if (str[i] == a)
 			return ((char *)&str[i]);
-		i--;
+		i--;//Retrocede al carácter anterior en la cadena.
 	}
 	return (0);
 }
