@@ -15,24 +15,24 @@
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
-	size_t	len;
 
-	len = 0;
-	if (src != NULL) //verifica si la cadena origen no es nula
+	i = 0;
+	if (dstsize == 0)
 	{
-		len = ft_strlen(src);//obtiene la longitud de la cadena origen utilizando la funcion strlen
-		if (dst != NULL && dstsize != 0)//verifica que dst sea nulo y dstsize no sea 0
-		{
-			i = 0;
-			while ((i < len) && i < (dstsize - 1))//copia desde la cadena de origen hasta destino
-			{
-				dst[i] = src[i];//copia un caracter de la cadena origen hasta dst
-				i++;//incrementa
-			}
-			dst[i] = '\0';//asegura que la cadena de destino este terminada con el carácter nulo
-		}
+		while (src[i])
+			i++;
+		return (i);
 	}
-	return (len);
+	while (i < dstsize - 1 && src[i] != '\0')
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	if (i < dstsize)
+		dst[i] = '\0';
+	while (src[i] != '\0')
+		i++;
+	return (i);
 }
 int main() {
     char destino[20];
