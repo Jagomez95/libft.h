@@ -36,7 +36,7 @@ all : $(NAME)
 $(NAME): $(OBJ) $(INCLUDE)
 	$(LIB) $(NAME) $(OBJ)
 
-BONUS: $(OBJ) $(BONUSOBJ) $(INCLUDE)
+bonus: $(OBJ) $(BONUSOBJ) $(INCLUDE)
 	$(LIB) $(NAME) $(BONUSOBJ) $(OBJ)
 
 %.o: %.c
@@ -52,4 +52,4 @@ re: fclean all
 
 rebonus: fclean bonus
 
-.PHONY: all clean fclean re 
+.PHONY: all bonus clean fclean re 
