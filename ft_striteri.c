@@ -27,12 +27,14 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 		++i;
 	}
 }
-int main() {
-    char str[] = "Hello, World!";
     
     void print_index_char(unsigned int index, char *character) {
     printf("Índice: %u, Carácter: %c\n", index, *character);
 }
+
+int main() {
+    char str[] = "Hello, World!";
+
     // Llamamos a la función ft_striteri con la cadena y la función de impresión
     ft_striteri(str, &print_index_char);
 
