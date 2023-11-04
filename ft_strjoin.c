@@ -14,13 +14,14 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*str;
-	size_t	i;
-	size_t	j;
+	char	*str;// Declara un puntero str que se utilizará para almacenar la nueva cadena resultante de la concatenación.
+	size_t	i;//utilizará como índice para recorrer la cadena de entrada.
+	size_t	j;//utilizará como índice para recorrer la cadena resultante.
 
 	i = 0;
 	j = 0;
-	//Asigna dinámicamente memoria para la nueva cadena. El tamaño es la suma de las longitudes de las cadenas más uno para el carácter nulo \0 al final.
+	//Asigna dinámicamente memoria para la nueva cadena. El tamaño es la suma de las longitudes de las cadenas más uno para 
+	//el carácter nulo \0 al final. Se utiliza ft_strlen para obtener la longitud de las cadenas s1 y s2.
 	str = (char *) malloc(sizeof(*s1) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	//Verifica si la asignación de memoria fue exitosa. Si no lo fue, devuelve NULL.
 	if (!str)
