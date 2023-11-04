@@ -23,24 +23,34 @@ void	*ft_calloc(size_t count, size_t size)//toma dos argumentos: count (número 
 	return (result);//Devuelve el puntero al bloque de memoria asignado, que ahora está inicializado a cero.
 }
 int main() {
-    // Ejemplo de uso de ft_calloc
     int *array;
+    size_t size = 5;
 
-    // Asignar memoria para un array de 5 enteros
-    array = (int *)ft_calloc(5, sizeof(int));
+    while (size <= 20) {
+        // Asignar memoria para un array de enteros
+        array = (int *)ft_calloc(size, sizeof(int));
 
-    if (array == NULL) {
-        fprintf(stderr, "Error: No se pudo asignar memoria.\n");
-        return 1;
+        if (array == NULL) {
+            fprintf(stderr, "Error: No se pudo asignar memoria para el tamaño %zu.\n", size);
+            return 1;
+        }
+
+        // Imprimir el tamaño y los valores del array (deberían ser 0)
+        size_t i = 0;
+        while (i < size) {
+            printf("%d ", array[i]);
+            i++;
+        }
+
+        // Nueva línea para separar los resultados de diferentes tamaños
+        printf("\n\n");
+
+        // Liberar la memoria asignada
+        free(array);
+
+        // Incrementar el tamaño para la próxima iteración
+        size += 5;
     }
-
-    // Imprimir los valores del array (deberían ser 0 ya que ft_calloc inicializa a cero)
-    for (int i = 0; i < 5; i++) {
-        printf("%d ", array[i]);
-    }
-
-    // Liberar la memoria asignada
-    free(array);
 
     return 0;
 }
