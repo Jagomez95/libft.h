@@ -22,3 +22,25 @@ void	*ft_calloc(size_t count, size_t size)//toma dos argumentos: count (número 
 	ft_bzero(result, count * size);// Utiliza ft_bzero para inicializar el contenido de la memoria asignada a cero. Aquí se asume que ft_bzero es una función que establece los primeros count * size bytes de la memoria en cero
 	return (result);//Devuelve el puntero al bloque de memoria asignado, que ahora está inicializado a cero.
 }
+int main() {
+    // Ejemplo de uso de ft_calloc
+    int *array;
+
+    // Asignar memoria para un array de 5 enteros
+    array = (int *)ft_calloc(5, sizeof(int));
+
+    if (array == NULL) {
+        fprintf(stderr, "Error: No se pudo asignar memoria.\n");
+        return 1;
+    }
+
+    // Imprimir los valores del array (deberían ser 0 ya que ft_calloc inicializa a cero)
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", array[i]);
+    }
+
+    // Liberar la memoria asignada
+    free(array);
+
+    return 0;
+}
